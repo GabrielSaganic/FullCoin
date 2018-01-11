@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1513875300 source:c:\users\gabos\desktop\fullcoinalfa0.0.0\block.cpp
+	"Block.h"
+	"Blockchain.h"
+	"hasha.h"
+	<time.h>
+
+1513801296 c:\users\gabos\desktop\fullcoinalfa0.0.0\hasha.h
+	<iostream>
+	<sstream>
+	<bitset>
+	<vector>
+	<iomanip>
+	<cstring>
+
+1513974484 c:\users\gabos\desktop\fullcoinalfa0.0.0\block.h
+	<iostream>
+	<vector>
+	"Transaction.h"
+
+1513873354 source:c:\users\gabos\desktop\fullcoinalfa0.0.0\blockchain.cpp
+	"Blockchain.h"
+	<stack>
+	<time.h>
+
+1513875026 c:\users\gabos\desktop\fullcoinalfa0.0.0\blockchain.h
+	"Block.h"
+	<vector>
+
+1513944014 source:c:\users\gabos\desktop\fullcoinalfa0.0.0\main.cpp
+	<iostream>
+	"blockchain.h"
+
+1513874699 c:\users\gabos\desktop\fullcoinalfa0.0.0\transaction.h
+	<iostream>
+
+1513875026 source:c:\users\gabos\desktop\fullcoinalfa0.0.0\transaction.cpp
+
+1513802225 c:\users\gabos\desktop\fullcoinalfa0.0.0\block.cpp
+	"Block.h"
+	<iostream>
+	<sstream>
+	<bitset>
+	<vector>
+	<iomanip>
+	<cstring>
+
+1513874425 c:\users\gabos\desktop\fullcoinalfa0.0.0\transaction.cpp
+	"hasha.h"
+	"Transaction.h"
+
+1513875152 c:\users\gabos\desktop\fullcoinalfa0.0.0\function.h
+	"hasha.h"
+
