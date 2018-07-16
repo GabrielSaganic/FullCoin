@@ -10,13 +10,19 @@ class Transaction
 private:
     string from;
     string to;
+    string fromID;
+    string toID;
     int amount;
     string transaction_hash;
 public:
-    Transaction(string nFrom, string nTo, int nAmount);
+    Transaction();
+    Transaction(string nFrom, string nTo, string nFromID, string nToID, int nAmount);
+
     int getAmount(){return amount;}
     string getFrom(){return from;}
     string getTo(){return to;}
+    string getFromID(){return fromID;}
+    string getToID(){return toID;}
     string getHash(){return transaction_hash;}
 };
 

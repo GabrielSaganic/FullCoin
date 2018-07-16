@@ -52,3 +52,72 @@
 1513875152 c:\users\gabos\desktop\fullcoinalfa0.0.0\function.h
 	"hasha.h"
 
+1531735236 source:d:\blockchain\fullcoin-master\block.cpp
+	"Block.h"
+	"Blockchain.h"
+	"hasha.h"
+	"Wallet.h"
+	"to_string.h"
+	<time.h>
+	<iostream>
+
+1531566990 d:\blockchain\fullcoin-master\block.h
+	<iostream>
+	<vector>
+	"Transaction.h"
+
+1531740848 d:\blockchain\fullcoin-master\transaction.h
+	<iostream>
+
+1531568675 d:\blockchain\fullcoin-master\blockchain.h
+	"Block.h"
+	<vector>
+
+1531569363 d:\blockchain\fullcoin-master\hasha.h
+	<iostream>
+	<sstream>
+	<bitset>
+	<vector>
+	<iomanip>
+	<cstring>
+
+1531566998 source:d:\blockchain\fullcoin-master\blockchain.cpp
+	"Blockchain.h"
+	<stack>
+	<time.h>
+	<iostream>
+
+1531742276 source:d:\blockchain\fullcoin-master\main.cpp
+	<iostream>
+	"Blockchain.h"
+	"Wallet.h"
+
+1531740461 source:d:\blockchain\fullcoin-master\transaction.cpp
+	"Block.h"
+	"to_string.h"
+	"hasha.h"
+
+1531743215 source:d:\blockchain\fullcoin-master\wallet.cpp
+	"Wallet.h"
+	<iostream>
+	"to_string.h"
+	"hasha.h"
+
+1531742193 d:\blockchain\fullcoin-master\wallet.h
+	<unordered_map>
+	"Blockchain.h"
+	"Block.h"
+
+1531568870 d:\blockchain\fullcoin-master\to_string.h
+	<iostream>
+	<sstream>
+
+1531569411 source:d:\blockchain\fullcoin-master\hasha.cpp
+	"hasha.h"
+	<iostream>
+	<sstream>
+	<bitset>
+	<vector>
+	<iomanip>
+	<cstring>
+

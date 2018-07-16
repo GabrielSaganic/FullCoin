@@ -39,8 +39,12 @@
 		<Unit filename="Function.h" />
 		<Unit filename="Transaction.cpp" />
 		<Unit filename="Transaction.h" />
+		<Unit filename="Wallet.cpp" />
+		<Unit filename="Wallet.h" />
+		<Unit filename="hasha.cpp" />
 		<Unit filename="hasha.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="to_string.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

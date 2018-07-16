@@ -1,17 +1,10 @@
 #include "Block.h"
 #include "Blockchain.h"
 #include "hasha.h"
+#include "Wallet.h"
+#include "to_string.h"
 #include <time.h>
-
-namespace patch
-{
-    template < typename T > std::string to_string( const T& n )
-    {
-        std::ostringstream stm ;
-        stm << n ;
-        return stm.str() ;
-    }
-}
+#include <iostream>
 
 Block::Block(int nIndex)
 {
@@ -47,12 +40,4 @@ void Block::MineBlock(int difficulty)
     }
 
     _hash=tmp_hash;
-}
-
-Transaction::Transaction(string nFrom, string nTo, int nAmount)
-{
-    from=nFrom;
-    to=nTo;
-    amount=nAmount;
-    transaction_hash=hashing(from+to+char(amount));
 }
