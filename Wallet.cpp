@@ -12,46 +12,26 @@ Wallet::Wallet()
 Wallet::Wallet(double n_balance)
 {
     id=hashing(patch::to_string(rand() % 100000 + 1));
-    balance=n_balance;
+    own_balance=n_balance;
 }
 
 void Wallet::synx_wallet(Blockchain FullCoin)
 {
-    cout << balance << endl;
+    balance=own_balance;
     for(int j=0; j<FullCoin.chain.size(); j++)
     {
         for(int i=0; i<FullCoin.chain[j].getTransaction().size(); i++)
         {
             if(FullCoin.chain[j].getTransaction()[i].getFromID()==id)
             {
-                cout << FullCoin.chain[j].getTransaction()[i].getFrom() << " - " << FullCoin.chain[j].getTransaction()[i].getAmount() <<endl;
-                balance-=FullCoin.chain[j].getTransaction()[i].getAmount();
-                cout << balance << endl;
+                balance=balance-FullCoin.chain[j].getTransaction()[i].getAmount();
             }
 
             if(FullCoin.chain[j].getTransaction()[i].getToID()==id)
             {
-                cout << FullCoin.chain[j].getTransaction()[i].getTo() << " + " << FullCoin.chain[j].getTransaction()[i].getAmount() <<endl;
-                balance+=FullCoin.chain[j].getTransaction()[i].getAmount();
-                cout << balance <<endl;
+                balance=balance+FullCoin.chain[j].getTransaction()[i].getAmount();
             }
 
         }
     }
 }
-
-/*void Wallet::addWallet(Wallet newWallet)
-{
-    string username;
-    cout << "Unesite username"<<endl;
-    cin >> username;
-    map_wallets[username]=newWallet;
-}
-
-void Wallet::print_wallet(std::unordered_map<string,Wallet> map_wallets)
-{
-    for (auto& x: map_wallets)
-    {
-        cout << x.first<<":" << endl <<"\tbalance: " << x.second.balance <<endl<< "\tID: " << x.second.id << endl;
-    }
-}*/

@@ -12,6 +12,7 @@ class Wallet
 private:
     string id;
     double balance;
+    double own_balance;
 public:
     string getID () const
     {
@@ -24,7 +25,7 @@ public:
     Wallet();
     Wallet(double n_balance);
 
-    void synx_wallet (Blockchain FullCoin) ;
+    void synx_wallet (Blockchain FullCoin);
     void print_wallet(std::unordered_map<string,Wallet> map_wallets);
 };
 

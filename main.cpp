@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Blockchain.h"
 #include "Wallet.h"
+#include "Function.h"
 
 using namespace std;
 
@@ -12,126 +13,69 @@ std::unordered_map<string,Wallet> map_wallets;
 
 int main()
 {
-    char odg='1';
-    string from, to, username, input, IDf, IDt;
-    int amount, n, odg2;
-    bool provjera=false;
+    int amount, n, odg;
 
     Blockchain FullCoin=Blockchain();
 
     do
     {
-        cout << "Unesite username"<<endl;
-        cin >> username;
-
-        Wallet newWallet(100);
-
-        map_wallets[username]=newWallet;
-
-        cout <<"Unesi 0 za kraj: "<<endl;
-        cin >>odg2;
-    }while(odg2!=0);
-
-    while(odg=='1')
-    {
-
-        n=FullCoin.chain.size()-1;
-
-        do
+        switch(odg)
         {
-            provjera=false;
-            cout << "Unesite svoj username: " << endl;
-            cin >> input;
-
-            std::unordered_map<string,Wallet>::const_iterator x = map_wallets.find (input);
-
-            if ( x == map_wallets.end() )
-                cout << "Krivi username! Pokusajte ponovno.\n"<<endl;
-            else
+            case 1:
             {
-                cout << "Uspjesno :)\n";
-                from=x->first;
-                IDf=x->second.getID();
-                provjera=true;
+                map_wallets=new_wallet(map_wallets, FullCoin);
+
+                odg=99;
+                break;
             }
-        }while(provjera!=true);
-
-        do
-        {
-            provjera=false;
-
-            cout <<"Unesite s kim zelite obaviti trensakciju: " <<endl;
-            cin >> input;
-
-            std::unordered_map<string,Wallet>::const_iterator y = map_wallets.find (input);
-
-            if ( y == map_wallets.end() )
-                cout << "Krivi username! Pokusajte ponovno.\n"<<endl;
-            else if(y->first==from)
-                cout << "Unesi tudi username ne svoji! \n"<<endl;
-            else
+            case 2:
             {
-                cout << "Uspjesno :)\n";
-                to=y->first;
-                IDt=y->second.getID();
-                provjera=true;
+                n=FullCoin.chain.size()-1;
+
+                FullCoin=paying(map_wallets, FullCoin, n);
+
+                odg=99;
+                break;
             }
-        }while(provjera!=true);
+            case 3:
+            {
+                 FullCoin.print();
 
-        do
-        {
-            provjera=false;
+                 odg=99;
+                 break;
+            }
 
-            cout <<"unesite svotu: " <<endl;
-            cin >> amount;
+            case 4:
+            {
+                for (auto& j: map_wallets)
+                {
+                    j.second.synx_wallet(FullCoin);
+                }
 
-            if(amount<0)
-                cout << "Svota mora biti pozitivna! Unesi opet.\n"<<endl;
-            else
-                provjera=true;
+                odg=99;
+                break;
+            }
+            case 5:
+            {
+                print_all_wallet(map_wallets);
 
-        }while(provjera!=true);
-
-        FullCoin.chain[n].addTransaction(Transaction(from,to, IDf, IDt, amount));
-
-        from.clear();
-        to.clear();
-        amount=0;
-
-        if(FullCoin.chain[n].getTransaction().size()==2)
-        {
-            FullCoin.chain[n].MineBlock(FullCoin.getDifficulty());
-            cout <<"Mining..."<<endl;
-            FullCoin.addBlock(Block(n+1));
+                odg=99;
+                break;
+            }
+            default:
+            {
+                cout << endl;
+                cout <<"NOVI RACUN-------------1\n";
+                cout <<"NOVA TRANSAKCIJA-------2\n";
+                cout <<"ISPIS BLOKOVA----------3\n";
+                cout <<"AZURIRANJE RACUNA------4\n";
+                cout <<"ISPIS RACUNA-----------5\n";
+                cout <<"IZLAZ------------------0\n";
+                cout << endl;
+                cin >> odg;
+            }
         }
-
-        cout <<"Ako zelis jos unesi 1: " <<endl;
-        cin >> odg;
-    }
-    /*
-    cout << "Unesite svoj username za azurirati: " << endl;
-    cin >> input;
-
-    std::unordered_map<string,Wallet>::const_iterator x = map_wallets.find (input);
-
-    if ( x == map_wallets.end() )
-        cout << "Krivi username! Pokusajte ponovno.\n"<<endl;
-    else
-    {
-        cout << "Uspjesno :)\n";
-       // x->second.synx_wallet(FullCoin);
-    }
-   print_wallet(map_wallets);
-*/
-    for (auto& j: map_wallets)
-    {
-        j.second.synx_wallet(FullCoin);
-    }
-
-    for (auto& i: map_wallets)
-    {
-        cout << i.first<<":" << endl <<"\tbalance: " << i.second.getBalance() <<endl<< "\tID: " << i.second.getID() << endl;
-    }
+    }while(odg!=0);
 
     FullCoin.print();
     return 0;

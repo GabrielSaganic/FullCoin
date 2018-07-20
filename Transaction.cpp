@@ -5,7 +5,7 @@
 Transaction::Transaction(string nFrom, string nTo, string nFromID, string nToID, int nAmount)
 {
     fromID=nFromID;
-    toID=nFromID;
+    toID=nToID;
     from=nFrom;
     to=nTo;
     amount=nAmount;

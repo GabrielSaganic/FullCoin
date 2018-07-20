@@ -87,23 +87,24 @@
 	<time.h>
 	<iostream>
 
-1531742276 source:d:\blockchain\fullcoin-master\main.cpp
+1532088275 source:d:\blockchain\fullcoin-master\main.cpp
 	<iostream>
 	"Blockchain.h"
 	"Wallet.h"
+	"Function.h"
 
-1531740461 source:d:\blockchain\fullcoin-master\transaction.cpp
+1532081771 source:d:\blockchain\fullcoin-master\transaction.cpp
 	"Block.h"
 	"to_string.h"
 	"hasha.h"
 
-1531743215 source:d:\blockchain\fullcoin-master\wallet.cpp
+1532088275 source:d:\blockchain\fullcoin-master\wallet.cpp
 	"Wallet.h"
 	<iostream>
 	"to_string.h"
 	"hasha.h"
 
-1531742193 d:\blockchain\fullcoin-master\wallet.h
+1532083284 d:\blockchain\fullcoin-master\wallet.h
 	<unordered_map>
 	"Blockchain.h"
 	"Block.h"
@@ -120,4 +121,10 @@
 	<vector>
 	<iomanip>
 	<cstring>
+
+1532088275 d:\blockchain\fullcoin-master\function.h
+	"Block.h"
+	"Blockchain.h"
+	"Transaction.h"
+	<iostream>
 
